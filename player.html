@@ -17,19 +17,32 @@
 </head>
 <body>
     <div class='player-container'>
-        <audio id='id-audio-player' autoplay controls="controls" src='songs/时光 - 许巍.mp3'>
+        <audio id='id-audio-player' autoplay controls="controls" src='songs/曾经的你 - 许巍.mp3'>
             <source id='id-source-playing' src="songs/曾经的你 - 许巍.mp3" >
         </audio>
+        <div class="player-time">
+            <time id=id-time-current class=left>0:00</time>
+            <time id=id-time-duration class=right>2:31</time>
+        </div>
         <div class='player-display'>
             <h2 id='id-h2-name'>曾经的你 - 许巍.mp3</h2>
         </div>
         <div class='player-controls'>
-            <input id='id-input-slider' type="range" value=0 min=0 max=100>
-            <button id='id-button-prev' data-action='prev'>上一首</button>
-            <button id='id-button-play' data-action='pause'>暂停</button>
-            <button id='id-button-next' data-action='next'>下一首</button>
-            <input id='id-input-volume' type="range" value=0 min=0 max=100>
+            <div class='controls-slider'>
+                <input id='id-input-slider' type="range" value=0 min=0 max=100>
+            </div>
+            <div class='controls-play'>
+                <button id='id-button-prev' data-action='prev'>上一首</button>
+                <button id='id-button-play' data-action='pause'>暂停</button>
+                <button id='id-button-next' data-action='next'>下一首</button>
+            </div>
+            <div class='controls-mode'>
+                <button id='id-button-loop' data-action='loop'>列表循环</button>
+                <button id='id-button-random' data-action='random'>随机播放</button>
+                <button id='id-button-single' data-action='single'>单曲循环</button>
+            </div>
         </div>
+
         <div class='player-songs'>
             <ul class='songs-list'>
                 <li class='single-song current-song'>曾经的你 - 许巍.mp3</li>

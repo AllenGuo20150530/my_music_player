@@ -2,7 +2,20 @@ var log = function() {
     console.log.apply(console, arguments)
 }
 
-
+var bindEventAudio = function(){
+    $('#id-audio-player').on('ended', function(event){
+        log('歌曲播放结束')
+        buttonNext()
+    })
+    $('#id-audio-player').on('timeupdate', function(event){
+        log('slider slides along with the music')
+        sliderSlide()
+        var duration = $('#id-audio-player')[0].duration
+        setTime($('#id-time-duration'), duration)
+        var currentTime = $('#id-audio-player')[0].currentTime
+        setTime($('#id-time-current'), currentTime)
+    })
+}
 
 
 // audio play
@@ -114,10 +127,27 @@ var nameDisplay = function() {
     $('#id-h2-name').text(name)
 }
 
+// slider bar 随音乐滑动
+var sliderSlide = function() {
+    var player = $('#id-audio-player')[0]
+    var time = player.currentTime
+    var duration = player.duration
+    var value = time * 100 / duration
+    var slider = $('#id-input-slider')[0]
+    slider.value = value
+}
+// 设置显示时间时间
+var setTime = function($element, time) {
+    var minute = Math.floor(time / 60)
+    var second = Math.floor(time % 60)
+    var end = `${minute}:${second}`
+    $element.text(end)
+}
 
 
 var __main = function() {
     nameDisplay()
+    bindEventAudio()
     bindEventPlay()
     bindEventPrev()
     bindEventNext()
