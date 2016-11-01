@@ -11,9 +11,13 @@ var bindEventAudio = function(){
         log('slider slides along with the music')
         sliderSlide()
         var duration = $('#id-audio-player')[0].duration
-        setTime($('#id-time-duration'), duration)
+        setTimeFormat($('#id-time-duration'), duration)
         var currentTime = $('#id-audio-player')[0].currentTime
-        setTime($('#id-time-current'), currentTime)
+        setTimeFormat($('#id-time-current'), currentTime)
+    })
+    $('#id-audio-player').on('volumechange', function(event){
+        log('volume changed')
+        setVolume()
     })
 }
 
@@ -136,20 +140,54 @@ var sliderSlide = function() {
     var slider = $('#id-input-slider')[0]
     slider.value = value
 }
+
+var setVolume = function() {
+    var player = $('#id-audio-player')[0]
+    var volumePlay = player.volume
+    var volume = volumePlay * 100
+    var slider = $('#id-input-volume')[0]
+    slider.value = volume
+}
 // 设置显示时间时间
-var setTime = function($element, time) {
+var setTimeFormat = function($element, time) {
     var minute = Math.floor(time / 60)
     var second = Math.floor(time % 60)
     var end = `${minute}:${second}`
     $element.text(end)
 }
+// 点击进度条，实现在此进度上播放音乐
+var bindEventSlider = function() {
+    $('#id-input-slider').on('click', function(event){
+        var player = $('#id-audio-player')[0]
+        var duration = player.duration
+        var slider = event.target
+        var value = slider.value
+        var time = value * duration / 100
+        player.currentTime = time
+    })
+}
+// 点击音量按钮， 调节音量
+var bindEventVolume = function(){
+    $('#id-input-volume').on('click', function(event){
+        var volumeSlider = event.target
+        var volumePlay = volumeSlider.value / 100
+        var player = $('#id-audio-player')[0]
+        player.volume = volumePlay
+    })
+}
 
-
-var __main = function() {
-    nameDisplay()
+var bindEvents = function() {
     bindEventAudio()
     bindEventPlay()
     bindEventPrev()
     bindEventNext()
     bindEventSong()
+    bindEventVolume()
+    bindEventSlider()
+}
+
+var __main = function() {
+    nameDisplay()
+    setVolume()
+    bindEvents()
 }
