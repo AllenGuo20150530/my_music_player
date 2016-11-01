@@ -9,10 +9,28 @@
     <title>My Music Player</title>
 </head>
 <body>
-    <audio id='id-audio-player' autoplay controls="controls">
-        <source src="songs/曾经的你 - 许巍.mp3" >
-        <source src="cornfieldchase.mp3">
-        <source src="letitbe.mp3">
-    </audio>
+    <div class='player-container'>
+        <audio id='id-audio-player' autoplay controls="controls">
+            <source src="songs/曾经的你 - 许巍.mp3" >
+        </audio>
+        <div class='player-controls'>
+            <input id='id-input-slider' type="range" value=0 min=0 max=100>
+            <button id='id-button-prev'>上一首</button>
+            <button id='id-button-play'>播放/暂停</button>
+            <button id='id-button-next'>下一首</button>
+            <input id='id-input-volume' type="range" value=0 min=0 max=100>
+        </div>
+        <div class='player-songs'>
+            <ul class='songs-list'>
+                <li class='single-song current-song'>1</li>
+                <li class='single-song'>2</li>
+                <li class='single-song'>3</li>
+                <li class='single-song'>4</li>
+                <li class='single-song'>5</li>
+                <li class='single-song'>6</li>
+                <li class='single-song'>7</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
