@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="player.js"></script>
+
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="player.js"></script>
+    <link rel="stylesheet" href="player.css" type="text/css" />
+    <script>
+        $(document).ready(function(){
+            __main()
+        })
+    </script>
     <title>My Music Player</title>
 </head>
 <body>
     <div class='player-container'>
-        <audio id='id-audio-player' autoplay controls="controls">
-            <source src="songs/曾经的你 - 许巍.mp3" >
+        <audio id='id-audio-player' autoplay controls="controls" src='songs/时光 - 许巍.mp3'>
+            <source id='id-source-playing' src="songs/曾经的你 - 许巍.mp3" >
         </audio>
         <div class='player-controls'>
             <input id='id-input-slider' type="range" value=0 min=0 max=100>
@@ -22,13 +29,9 @@
         </div>
         <div class='player-songs'>
             <ul class='songs-list'>
-                <li class='single-song current-song'>1</li>
-                <li class='single-song'>2</li>
-                <li class='single-song'>3</li>
-                <li class='single-song'>4</li>
-                <li class='single-song'>5</li>
-                <li class='single-song'>6</li>
-                <li class='single-song'>7</li>
+                <li class='single-song current-song'>曾经的你 - 许巍.mp3</li>
+                <li class='single-song'>时光 - 许巍.mp3</li>
+                <li class='single-song'>蓝莲花-许巍.mp3</li>
             </ul>
         </div>
     </div>
