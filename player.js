@@ -41,6 +41,7 @@ var buttonPause = function(button) {
     button.innerText = '播放'
     log(button)
 }
+
 // id-button-play bind event
 var bindEventPlay = function() {
     log('bind id-button-play')
@@ -52,10 +53,12 @@ var bindEventPlay = function() {
             // audio pause
             log('audio pause')
             buttonPause(target)
+            $('.player-img').toggleClass('off')
         }else if (action === 'play') {
             // audio play
             log('audio play')
             buttonPlay(target)
+            $('.player-img').toggleClass('off')
         }
     })
     nameDisplay()

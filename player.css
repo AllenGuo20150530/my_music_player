@@ -4,3 +4,81 @@
 .current-song {
     color: #008080;
 }
+.player-container {
+    text-align: center;
+    width: 270px;
+    height: 480px;
+    margin: 0 auto;
+    /* border-style: solid; */
+    /* border-color: lightblue; */
+    border: 1px solid lightblue;
+}
+.player-time {
+    position: relative;
+    text-align: left;
+}
+time#id-time-duration {
+    position: absolute;
+    right: 0px;
+}
+#id-input-volume {
+    display: block;
+}
+.player-center {
+    margin: 0 auto;
+}
+#id-input-slider {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+}
+.player-img {
+    width: 180px;
+    height: 180px;
+    margin: 0px auto;
+    border-radius: 100%;
+}
+.on {
+    background: url('images/xuwz.jpg') no-repeat 0 0;
+    -webkit-animation: rotating 10s linear infinite;
+    animation: rotating 10s linear infinite;
+    animation-play-state: running;
+}
+.off {
+    /*background: url('images/xuwz.jpg') no-repeat 0 0;
+    -webkit-animation: rotating 10s linear infinite;
+    animation: rotating 10s linear infinite;*/
+    animation-play-state: paused;
+}
+@-webkit-keyframes rotating {
+	from{
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+    	transform: rotate(0deg);
+	}
+	to{
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
