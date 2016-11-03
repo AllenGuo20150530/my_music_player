@@ -17,6 +17,7 @@
 </head>
 <body>
     <div class='player-container'>
+        <!-- <img id='id-img-background' src="images/163.png" alt=""> -->
         <audio id='id-audio-player' autoplay src='songs/曾经的你 - 许巍.mp3'>
             <source id='id-source-playing' src="songs/曾经的你 - 许巍.mp3" >
         </audio>
@@ -27,12 +28,14 @@
 
         <div class='player-controls'>
             <div class='controls-slider'>
-                <input id='id-input-slider' type="range" value=0 min=0 max=100>
+                <div class='controls-prog'>
+                    <input id='id-input-slider' type="range" value=0 min=0 max=100>
+                </div>
                 <div class="player-time">
                     <time id=id-time-current class=left>0:00</time>
                     <time id=id-time-duration class=right>2:31</time>
                 </div>
-                <input id='id-input-volume' type="range" value=0 min=0 max=100>
+                <!-- <input id='id-input-volume' type="range" value=0 min=0 max=100> -->
             </div>
             <div class='controls-play'>
                 <button id='id-button-prev' data-action='prev'>上一首</button>
@@ -42,7 +45,6 @@
             <div class='controls-mode'>
                 <button id='id-button-loop' data-action='loop'>列表循环</button>
                 <button id='id-button-random' data-action='random'>随机播放</button>
-                <button id='id-button-single' data-action='single'>单曲循环</button>
             </div>
         </div>
 

@@ -4,22 +4,63 @@
 .current-song {
     color: #008080;
 }
+button {
+    opacity: 0;
+    color: white;
+}
 .player-container {
+    background: -webkit-linear-gradient(bottom, rgba(57, 0, 0, 1) 16%, rgba(179, 255, 184, 0.8) 100%);
+    background: -o-linear-gradient(bottom, rgba(57, 0, 0, 1) 16%, rgba(179, 255, 184, 0.8) 100%);
+    background: linear-gradient(to top, rgba(57, 0, 0, 1) 16%, rgba(179, 255, 184, 0.8) 100%);  background-repeat:no-repeat;
+    background-size:100% 100%;
     text-align: center;
-    width: 270px;
-    height: 480px;
+    width: 360px;
+    height: 640px;
     margin: 0 auto;
-    /* border-style: solid; */
-    /* border-color: lightblue; */
     border: 1px solid lightblue;
+    z-index: 0;
+}
+h2#id-h2-name {
+    position: relative;
+    top: 40px;
+}
+.player-controls {
+    position: absolute;
+    bottom: 30px;
+    width: inherit;
+    z-index: 100;
+}
+.controls-play {
+    position: relative;
+    margin: 0 auto;
+    z-index: 101;
+    width: 180px;
+}
+.controls-mode {
+    position: relative;
+    bottom: 18px;
+    text-align: left;
+    width: inherit;
+    left: 20px;
+}
+.controls-slider {
+    position: relative;
 }
 .player-time {
     position: relative;
+    bottom: 16px;
     text-align: left;
+    color: white;
+    z-index: 99;
+    font-size: small;
 }
 time#id-time-duration {
     position: absolute;
-    right: 0px;
+    right: 8px;
+}
+time#id-time-current {
+    position: relative;
+    left: 8px;
 }
 #id-input-volume {
     display: block;
@@ -27,16 +68,29 @@ time#id-time-duration {
 .player-center {
     margin: 0 auto;
 }
-#id-input-slider {
-    display: block;
+.controls-prog {
     margin: 0 auto;
-    width: 180px;
+    width: 240px;
+    z-index: 102;
+    /*background: black;*/
+}
+input#id-input-slider {
+    margin: 0 auto;
+    width: 240px;
+    z-index: 102;
 }
 .player-img {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     margin: 0px auto;
     border-radius: 100%;
+    top: 110px;
+    position: relative;
+}
+
+button#id-button-random {
+    position: absolute;
+    right: 40px;
 }
 .on {
     background: url('images/xuwz.jpg') no-repeat 0 0;

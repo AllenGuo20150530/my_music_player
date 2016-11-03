@@ -112,11 +112,11 @@ var bindEventNext = function() {
     $('#id-button-next').on('click', function(){
         log('song next')
         log(event.target)
+        log(event)
         var button = event.target
         buttonNext(button)
     })
 }
-
 // d点击歌曲名切换歌曲
 var bindEventSong = function() {
     $('.songs-list').on('click', function(event){
@@ -194,3 +194,6 @@ var __main = function() {
     setVolume()
     bindEvents()
 }
+$(document).ready(function(){
+    __main()
+})
