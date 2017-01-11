@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="player.js"></script>
+    <link rel="stylesheet" href="player.css" type="text/css" />
+    <script>
+        $(document).ready(function(){
+            __main()
+        })
+    </script>
+    <title>My Music Player</title>
+</head>
+<body>
+    <div class='player-container'>
+        <!-- 放置封面图片 -->
+        <div id='id-div-img' class='player-img on'>
+            <img src="images/xuwz.jpg" alt="">
+        </div>
+        <!-- audio播放器 -->
+        <audio id='id-audio-player' src='songs/曾经的你 - 许巍.mp3'>
+            <source id='id-source-playing' src="songs/曾经的你 - 许巍.mp3" >
+        </audio>
+
+        <div>
+            <!-- 时间、 歌曲名称 显示 -->
+            <div class='player-display'>
+                <h2 id='id-h2-name'>曾经的你 - 许巍.mp3</h2>
+            </div>
+            <div class='controls-slider'>
+                <div class="player-time">
+                    <time id=id-time-current class=left>0:00</time>
+                    <time id=id-time-duration class=right>2:31</time>
+                </div>
+                <div class='controls-prog'>
+                    <input id='id-input-slider' type="range" value=0 min=0 max=100>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 播放控制 -->
+        <div class='player-controls'>
+            <div class='controls-play'>
+                    <!-- 上一首 -->
+                    <div class="circle" id='id-div-prev' data-action='prev'>
+                        <div class="pause prev1" ></div>
+                        <div class="triangleLeft prev2" ></div>
+                    </div>
+                    <!-- 暂停 -->
+                    <div class="circle1" id='id-div-pause' data-action='pause'>
+                        <div class="pause pause1"></div>
+                        <div class="pause pause2"></div>
+                    </div>
+                    <!-- 播放 -->
+                    <div class="circle1 display-none" id='id-div-play' data-action='play'>
+                        <div class="triangleRight-play"></div>
+                    </div>
+                    <!-- 下一首  -->
+                    <div class="circle" id='id-div-next' data-action='next'>
+                        <div class="triangleRight next1"></div>
+                        <div class="pause next2"></div>
+                    </div>
+            </div>
+        </div>
+        <!-- 播放列表 -->
+        <div id='id-div-songsContainer' class='songs-display songs-none'>
+            <ul class='songs-list vertical-center'>
+                <li class='single-song current-song'>曾经的你 - 许巍.mp3</li>
+                <li class='single-song'>时光 - 许巍.mp3</li>
+                <li class='single-song'>蓝莲花-许巍.mp3</li>
+            </ul>
+            <input id='id-input-close' type="button" value='关闭'>
+        </div>
+    </div>
+</body>
+</html>
