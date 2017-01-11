@@ -53,7 +53,7 @@ var bindEventPlay = function() {
     $('#id-div-play').on('click', function(){
         buttonPlayPause('play')
 
-    })
+})
     nameDisplay()
 }
 
