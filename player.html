@@ -25,47 +25,44 @@
         <audio id='id-audio-player' src='songs/曾经的你 - 许巍.mp3'>
             <source id='id-source-playing' src="songs/曾经的你 - 许巍.mp3" >
         </audio>
-
-        <div>
-            <!-- 时间、 歌曲名称 显示 -->
-            <div class='player-display'>
-                <h2 id='id-h2-name'>曾经的你 - 许巍.mp3</h2>
-            </div>
-            <div class='controls-slider'>
-                <div class="player-time">
-                    <time id=id-time-current class=left>0:00</time>
-                    <time id=id-time-duration class=right>2:31</time>
-                </div>
-
-                <div class='controls-prog'>
-                    <input id='id-input-slider' type="range" value=0 min=0 max=100>
-                </div>
+        <!-- 时间 歌曲名称 显示 -->
+        <div class='player-display'>
+            <div id='id-time-remain'>01:01</div>
+            <div class='audio-info'>
+                <div id='id-audio-name'>曾经的你</div>
+                <div id='id-audio-author'>许巍</div>
             </div>
         </div>
-
-
+        <!-- 进度条 -->
+        <div class='slider'>
+            <div id='id-slider-gone' style='width: 200px;'></div>
+        </div>
         <!-- 播放控制 -->
         <div class='player-controls'>
-            <div class='controls-play'>
-                    <!-- 上一首 -->
-                    <div class="circle" id='id-div-prev' data-action='prev'>
-                        <div class="pause prev1" ></div>
-                        <div class="triangleLeft prev2" ></div>
-                    </div>
-                    <!-- 暂停 -->
-                    <div class="circle1" id='id-div-pause' data-action='pause'>
-                        <div class="pause pause1"></div>
-                        <div class="pause pause2"></div>
-                    </div>
-                    <!-- 播放 -->
-                    <div class="circle1 display-none" id='id-div-play' data-action='play'>
-                        <div class="triangleRight-play"></div>
-                    </div>
-                    <!-- 下一首  -->
-                    <div class="circle" id='id-div-next' data-action='next'>
-                        <div class="triangleRight next1"></div>
-                        <div class="pause next2"></div>
-                    </div>
+            <div class='controls-buttons'>
+                <!-- 暂停 -->
+                <div class="circle1" id='id-div-pause' data-action='pause'>
+                    <div class="pause pause1"></div>
+                    <div class="pause pause2"></div>
+                </div>
+                <!-- 播放 -->
+                <div class="circle1 display-none" id='id-div-play' data-action='play'>
+                    <div class="triangleRight-play"></div>
+                </div>
+                <!-- 上一首 -->
+                <div class="circle" id='id-div-prev' data-action='prev'>
+                    <div class="pause prev1" ></div>
+                    <div class="triangleLeft prev2" ></div>
+                </div>
+                <!-- 下一首  -->
+                <div class="circle" id='id-div-next' data-action='next'>
+                    <div class="triangleRight next1"></div>
+                    <div class="pause next2"></div>
+                </div>
+            </div>
+            <div class='controls-mode'>
+                <div id='id-div-single'>single</div>
+                <div id='id-div-random'>random</div>
             </div>
         </div>
         <!-- 播放列表 -->
