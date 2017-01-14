@@ -19,7 +19,7 @@
     <div class='player-container'>
         <!-- 放置封面图片 -->
         <div id='id-div-img' class='player-img on'>
-            <img src="images/xuwz.jpg" alt="">
+            <!-- <img src="images/xuwz.jpg" alt=""> -->
         </div>
         <!-- audio播放器 -->
         <audio id='id-audio-player' src='songs/曾经的你 - 许巍.mp3'>
@@ -34,39 +34,46 @@
             </div>
         </div>
         <!-- 进度条 -->
-        <div class='slider'>
-            <div id='id-slider-gone' style='width: 200px;'></div>
+        <div class='slider-background'>
+            <div class='slider'>
+                <div id='id-slider-gone' style='width: 200px;'></div>
+            </div>
         </div>
         <!-- 播放控制 -->
         <div class='player-controls'>
             <div class='controls-buttons'>
                 <!-- 暂停 -->
-                <div class="circle1" id='id-div-pause' data-action='pause'>
+                <div class="buttons display-none" id='id-div-pause' data-action='pause'>
                     <div class="pause pause1"></div>
-                    <div class="pause pause2"></div>
+                    <div class="pause"></div>
                 </div>
                 <!-- 播放 -->
-                <div class="circle1 display-none" id='id-div-play' data-action='play'>
-                    <div class="triangleRight-play"></div>
+                <div class="buttons" id='id-div-play' data-action='play'>
+                    <div class="play"></div>
                 </div>
                 <!-- 上一首 -->
-                <div class="circle" id='id-div-prev' data-action='prev'>
-                    <div class="pause prev1" ></div>
+                <div class="buttons" id='id-div-prev' data-action='prev'>
+                    <div class="triangleLeft prev1" ></div>
                     <div class="triangleLeft prev2" ></div>
                 </div>
                 <!-- 下一首  -->
-                <div class="circle" id='id-div-next' data-action='next'>
+                <div class="buttons" id='id-div-next' data-action='next'>
                     <div class="triangleRight next1"></div>
-                    <div class="pause next2"></div>
+                    <div class="triangleRight next2"></div>
                 </div>
             </div>
-            <div class='controls-mode'>
-                <div id='id-div-single'>single</div>
-                <div id='id-div-random'>random</div>
+            <!-- 歌词显示 和 分享 -->
+            <div class='controls-func'>
+                <div class='func' id='id-div-lyrc'>
+                    <div class='func-lrc'>lrc</div>
+                </div>
+                <div class='func func-share' id='id-div-share'>
+                    <!-- <div class='func-share'></div><div class='func-share'></div> -->
+                </div>
             </div>
         </div>
         <!-- 播放列表 -->
-        <div id='id-div-songsContainer' class='songs-display songs-none'>
+        <!-- <div id='id-div-songsContainer' class='songs-display songs-none'>
             <ul class='songs-list vertical-center'>
                 <li class='single-song current-song'>曾经的你 - 许巍.mp3</li>
                 <li class='single-song'>时光 - 许巍.mp3</li>
@@ -75,7 +82,10 @@
 
             <input id='id-input-close' type="button" value='关闭'>
 
-        </div>
+        </div> -->
+    </div>
+    <div>
+        <img src="images/share.png" alt="">
     </div>
 </body>
 </html>

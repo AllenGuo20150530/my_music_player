@@ -18,28 +18,18 @@ body {
     -moz-box-shadow: 0px 0px 9px #333333;
 }
 
-
-
 /* 封面图片 */
 .player-img {
-    position: relative;
+    background: url('images/xuwz.jpg');
+    background-size: 100% 100%;
     width: 275px;
     height: 275px;
     margin: 12.5px auto 0 auto;
-    border-radius: 100%;
-}
-.player-img:after{
-  position:absolute;
-  content:'';
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  box-shadow: 0 0 5px 5px #F3EFE3 inset;
-}
-img {
-    width: 100%;
-    height: 100%;
+    position: relative;
+    /* 图片边缘过渡效果*/
+    box-shadow: 0 0 30px 0px #F3EFE3 inset;
+    -webkit-box-shadow: 0 0 30px 0px #F3EFE3 inset;
+    -moz-box-shadow: 0 0 30px 0px #F3EFE3 inset;
 }
 
 /* 时间 标题 演唱者 显示 */
@@ -73,14 +63,24 @@ img {
 }
 
 /* slider 进度条*/
-.slider {
+.slider-background {
     height: 20px;
     width: 100%;
+    background: linear-gradient(90deg, #5A4450 50%, #F3EFE3 0%);
+    background: -moz-linear-gradient(90deg, #5A4450 50%, #F3EFE3 0%);
+    background: -webkit-linear-gradient(90deg, #5A4450 50%, #F3EFE3 0%);
+    background: -o-linear-gradient(90deg, #5A4450 50%, #F3EFE3 0%);
+}
+.slider {
+    height: 100%;
+    width: 100%;
     background-color: #E19484;
+    border-radius: 10px;
 }
 #id-slider-gone {
     height: 100%;
     background-color: #FFA895;
+    border-radius: 10px;
 }
 
 /* 播放控制 */
@@ -88,211 +88,104 @@ img {
     background-color: #5A4450;
     height: 72px;
 }
-/*.controls-play {
-    position: relative;
-    margin: 0 auto;
-    width: 180px;
-}
-.controls-mode {
-    position: relative;
-    bottom: 18px;
-    text-align: left;
-    width: inherit;
-    left: 20px;
-}*/
-
-
-input#id-input-slider {
-    margin: 0 auto;
-    width: 240px;
-}
-
-
-button#id-button-random {
-    position: absolute;
-    right: 40px;
-}
-.on {
-    /*background: url('images/xuwz.jpg') no-repeat 0 0;*/
-    /*-webkit-animation: rotating 10s linear infinite;*/
-    /*animation: rotating 10s linear infinite;*/
-    /*animation-play-state: running;*/
-}
-.off {
-    /*background: url('images/xuwz.jpg') no-repeat 0 0;
-    -webkit-animation: rotating 10s linear infinite;
-    animation: rotating 10s linear infinite;*/
-
-    /*animation-play-state: paused;*/
-}
-/*@-webkit-keyframes rotating {
-	from{
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-    	transform: rotate(0deg);
-	}
-	to{
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-@keyframes rotating {
-    from{
-        -webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to{
-        -webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}*/
-.circle {
-    width: 40px;
-    height: 40px;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    /* border-radius: 60px; */
-    border: 1px #FFF solid;
+.controls-buttons {
+    display: inline-block;
     float: left;
+}
+.buttons {
+    /* 按钮总体样式、位置等 */
+    width: 40px;
+    height: 20px;
+    float: left;
+    margin: 26px auto;
     cursor: pointer;
-    margin-top: 13px;
-    margin-left: 13px;
-    margin-right: 13px;
 }
-
-.circle:hover,.circle1:hover{
-    -webkit-box-shadow:rgba(255,255,255,0.6) 0 0 5px;
-    -moz-box-shadow:rgba(255,255,255,0.6) 0 0 15px;
-    box-shadow:rgba(255,255,255,0.6) 0 0 15px;
+.test{
+    background: red;
 }
-
-.circle1{
-    width:40px;
-    height:40px;
-    -webkit-border-radius:70px;
-    -moz-border-radius:70px;
-    border-radius:70px;
-    border:2px #FFF solid;
-    float:left;
-    cursor:pointer;
-
+.pause {
+    /* 暂停按钮的设计*/
+    width: 5px;
+    height: 18px;
+    background: #F3F0E4;
+    display: inline-block;
 }
+.pause1 {
+    margin: 0 0 0 25px;
+}
+/* 播放按钮出现与否 */
 .display-none {
     display: none;
 }
-.triangleRight {
-    width: 0;
-    height: 0;
-    border-left: 20px solid #FFF;
+.play {
+    /* 播放按钮 */
+    border-left: 30px solid #F3F0E4;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    -webkit-transform: scale(0.6,1.2);
-    -moz-transform: scale(0.6,1.2);
-    transform: scale(0.6,1.2);
+    -webkit-transform: scale(0.5,1);
+    -moz-transform: scale(0.5,1);
+    transform: scale(0.5,1);
+    margin: 0 0 0 20px;
 }
-.triangleRight-play {
-    width: 0;
-    height: 0;
-    border-left: 20px solid #FFF;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    -webkit-transform: scale(0.6,1.2);
-    -moz-transform: scale(0.6,1.2);
-    transform: scale(1.2,1.5);
-    /*float: left;*/
-    margin: 10px 10px 10px 14px;
-}
-.next1{
-    margin: 10px 0 0 6px;
-    float: left;
-}
-.next2{
-    margin: 8px 0px;
-    float: left;
-}
-
 .triangleLeft {
-    width: 0;
-    height: 0;
-    border-right: 20px solid #FFF;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    -webkit-transform: scale(0.6,1.2);
-    -moz-transform: scale(0.6,1.2);
-    transform: scale(0.6,1.2);
+    /* 上一首 */
+    float: right;
+    border-right: 16px solid #F3F0E4;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    -webkit-transform: scale(0.5,1);
+    -moz-transform: scale(0.5,1);
+    transform: scale(0.5,1);
 }
-.prev1{
-    margin: 8px 0 0 10px;
-    float: left;
+.prev1 {
+    margin: 2px 0px 0px -8px;
 }
-
-.prev2{
-    margin: 10px 0 0 15px;
-    /* float: left; */
+.prev2 {
+    margin: 2px 0px 0px 0px;
 }
 
-.pause {
-    width: 5px;
-    height: 24px;
-    background: #FFF;
-}
-.pause1 {
-    margin: 8px 5px 8px 10px;
+.triangleRight {
+    /* 下一首 */
     float: left;
+    border-left: 16px solid #F3F0E4;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    -webkit-transform: scale(0.5,1);
+    -moz-transform: scale(0.5,1);
+    transform: scale(0.5,1);
 }
-.pause2 {
-    margin: 8px 10px 8px 5px;
-    float: left;
+.next1 {
+    margin: 2px 0px 0px 11px;
 }
-.player-songs {
-    display: none;
-    float: left;
-    position: relative;
+.next2 {
+    margin: 2px 0px 0px -8px;
 }
-.songs-display {
-    width: 360px;
-    height: 640px;
-    margin: 0 auto;
-    display: block;
-    z-index: 20;
-    background: lightgray;
-    opacity: 0.8;
-    position: absolute;
-    top: 0%;
+
+/* 显示歌词  分享 */
+.controls-func {
+    display: inline-block;
+    float: right;
+    margin: 26px 30px 26px 0px;
+    height: 20px;
 }
-.songs-none {
-    display: none;
+.func {
+    display: inline-block;
+    font-style: oblique;
+    height: 20px;
+    width: 20px;
+    margin: 0 -5px -4px 10px;
 }
-.vertical-center {
-    top: 50%;
-    position: relative;
-    transform: translateY(-50%);
+
+.func-lrc {
+    height: 10px;
+    width: 20px;
+    border-bottom: 4px solid #000;
+    border-top: 4px solid #000;
+    margin: 0 -10px;
+    font-size: 10px;
+    border-radius: 7px;
 }
-.circle-left {
-    margin-left: 30px;
-    background: url('images/loop.jpg') 100% 100%;
-}
-.next {
-    background: url('images/next.png');
-    background-size: auto;
-}
-#id-input-close {
-    color: #FF5722;
-    background-color: lightgray;
-    margin: 0;
-    border: 0;
-    position: absolute;
-    bottom: 16%;
-    right: 9%;
+.func-share {
+    background: url('images/share.png');
+    background-size: 100% 100%;
 }
