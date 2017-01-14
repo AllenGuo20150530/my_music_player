@@ -4,6 +4,7 @@ body {
 }
 /* 播放器容器 */
 .player-container {
+    font-size: 0;
     position: fixed;
     top: 25px;
     left: 50%;
