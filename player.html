@@ -27,7 +27,7 @@
         </audio>
         <!-- 时间 歌曲名称 显示 -->
         <div class='player-display'>
-            <div id='id-time-remain'>01:01</div>
+            <div id='id-time-remain'>--:--</div>
             <div class='audio-info'>
                 <div id='id-audio-name'>曾经的你</div>
                 <div id='id-audio-author'>许巍</div>
@@ -36,7 +36,7 @@
         <!-- 进度条 -->
         <div class='slider-background'>
             <div class='slider'>
-                <div id='id-slider-gone' style='width: 200px;'></div>
+                <div id='id-slider-gone' style='width: 0%;'></div>
             </div>
         </div>
         <!-- 播放控制 -->
@@ -73,16 +73,13 @@
             </div>
         </div>
         <!-- 播放列表 -->
-        <!-- <div id='id-div-songsContainer' class='songs-display songs-none'>
+        <div id='id-div-songsContainer' class='songs-display songs-none'>
             <ul class='songs-list vertical-center'>
                 <li class='single-song current-song'>曾经的你 - 许巍.mp3</li>
                 <li class='single-song'>时光 - 许巍.mp3</li>
                 <li class='single-song'>蓝莲花-许巍.mp3</li>
             </ul>
-
-            <input id='id-input-close' type="button" value='关闭'>
-
-        </div> -->
+        </div>
     </div>
 </body>
 </html>

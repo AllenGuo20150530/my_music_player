@@ -1,25 +1,27 @@
+// 定义自己的log
 var log = function() {
     console.log.apply(console, arguments)
 }
-
+// 在audio标签上绑定相关事件
 var bindEventAudio = function(){
-    $('#id-audio-player').on('ended', function(event){
-        log('歌曲播放结束')
-        buttonNext()
-        log('音乐已切换，继续播放！')
-    })
+    // $('#id-audio-player').on('ended', function(event){
+    //     log('歌曲播放结束')
+    //     buttonNext()
+    //     log('音乐已切换，继续播放！')
+    // })
     $('#id-audio-player').on('timeupdate', function(event){
-        log('slider slides along with the music')
-        sliderSlide()
+
+        // 获取总时长和当前播放时间
         var duration = $('#id-audio-player')[0].duration
-        setTimeFormat($('#id-time-duration'), duration)
         var currentTime = $('#id-audio-player')[0].currentTime
-        setTimeFormat($('#id-time-current'), currentTime)
+        log(duration, currentTime)
+        setTimeFormat($('#id-time-remain'), duration, currentTime)
+        sliderSlide(duration, currentTime)
     })
-    $('#id-audio-player').on('volumechange', function(event){
-        log('volume changed')
-        setVolume()
-    })
+    // $('#id-audio-player').on('volumechange', function(event){
+    //     log('volume changed')
+    //     setVolume()
+    // })
 }
 
 
@@ -52,9 +54,14 @@ var bindEventPlay = function() {
     log('bind id-div-play')
     $('#id-div-play').on('click', function(){
         buttonPlayPause('play')
-
 })
     nameDisplay()
+}
+
+var setTimeRemain = function() {
+    // 将剩余时间设置为初始状态
+    var init = '--:--'
+    $('#id-time-remain').text(init)
 }
 
 //根据传入的song进行播放
@@ -91,6 +98,7 @@ var buttonPrev = function() {
 // id-div-prev bind event
 var bindEventPrev = function() {
     $('#id-div-prev').on('click', function(){
+        setTimeRemain()
         log('song prev')
         log(event.target)
         buttonPrev()
@@ -113,6 +121,7 @@ var buttonNext = function() {
 // id-button-next bind event
 var bindEventNext = function() {
     $('#id-div-next').on('click', function(event){
+        setTimeRemain()
         log('song next')
         log(event.target)
         log(event)
@@ -122,35 +131,38 @@ var bindEventNext = function() {
 }
 
 var nameDisplay = function() {
-    var currentSong = $('.current-song').text()
-    var len = currentSong.length
-    var name = currentSong.slice(0, len-4)
-    $('#id-h2-name').text(name)
+    var currentSong = $('.current-song').text().split('-')
+    var name = currentSong[0]
+    var author = currentSong[1].split('.')[0]
+    $('#id-audio-name').text(name)
+    $('#id-audio-author').text(author)
 }
 
 // slider bar 随音乐滑动
-var sliderSlide = function() {
-    var player = $('#id-audio-player')[0]
-    var time = player.currentTime
-    var duration = player.duration
-    var value = time * 100 / duration
-    var slider = $('#id-input-slider')[0]
-    slider.value = value
+var sliderSlide = function(duration, currentTime) {
+    log('slider slides along with the music')
+    var value = (currentTime * 100 / duration).toString().split('.')[0] + '%'
+    log(value)
+    var slider = $('#id-slider-gone')[0]
+    log(slider)
+    slider.style.width = value
 }
 
-// var setVolume = function() {
-//     var player = $('#id-audio-player')[0]
-//     var volumePlay = player.volume
-//     var volume = volumePlay * 100
-//     var slider = $('#id-input-volume')[0]
-//     slider.value = volume
-// }
 // 设置显示时间时间
-var setTimeFormat = function($element, time) {
-    var minute = Math.floor(time / 60)
-    var second = Math.floor(time % 60)
-    var end = `${minute}:${second}`
-    $element.text(end)
+var setTimeFormat = function($element, duration, currentTime) {
+    log('setTimeFormat')
+    var time = duration - currentTime
+    var minute = Math.floor(time / 60).toString()
+    var second = Math.floor(time % 60).toString()
+    log(minute, second)
+    if (minute.length < 2) {
+        minute = '0' + minute
+    }
+    if (second.length < 2) {
+        second = '0' + second
+    }
+    var remain = `${minute}:${second}`
+    $element.text(remain)
 }
 // 点击进度条，实现在此进度上播放音乐
 var bindEventSlider = function() {
@@ -163,15 +175,6 @@ var bindEventSlider = function() {
         player.currentTime = time
     })
 }
-// 点击音量按钮， 调节音量
-// var bindEventVolume = function(){
-//     $('#id-input-volume').on('click', function(event){
-//         var volumeSlider = event.target
-//         var volumePlay = volumeSlider.value / 100
-//         var player = $('#id-audio-player')[0]
-//         player.volume = volumePlay
-//     })
-// }
 
 // list 显示按钮
 var bindEventList = function() {
